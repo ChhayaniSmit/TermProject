@@ -1,0 +1,23 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "COSC3606 FinalProject",
+  "homepage": "https://github.com/ChhayaniSmit/TermProject#readme",
+  "bugs": {
+    "url": "https://github.com/ChhayaniSmit/TermProject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChhayaniSmit/TermProject.git"
+  },
+  "license": "ISC",
+  "author": "Smit Chhayani",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

@@ -1,0 +1,66 @@
+
+/* ===== Libro Green Theme ===== */
+:root {
+    --libro-green: #198754;
+}
+
+body {
+    background: linear-gradient(to bottom right, #e6f0ed, #ffffff);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--libro-green) !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+    color: #d4edda !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--libro-green) !important;
+    border-color: var(--libro-green) !important;
+}
+
+.btn-primary:hover {
+    background-color: #157347 !important;
+    border-color: #146c43 !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff;
+}
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Badge */
+span.position-absolute {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--libro-green);
+    color: #fff;
+}
