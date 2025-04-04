@@ -82,7 +82,7 @@ $borrowedCount = $data['total'];
                         </div>
                         <div class="d-flex gap-2">
                             <!-- View Button (disabled for now) -->
-                            <button class="btn btn-sm btn-outline-primary" >View</button>
+                            <button class="btn btn-sm btn-outline-primary" >Read Online</button>
 
                             <!-- Return Button -->
                             <form method="POST" action="return_book.php">

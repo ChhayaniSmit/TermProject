@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="col-md-4">
                             <label>Postal Code</label>
-                            <input type="text" name="postal_code" class="form-control" required pattern="[0-9]{5,6}" title="Enter a valid postal code">
+                            <input type="text" name="postal_code" class="form-control" required pattern="[A0B]{1A2}" title="Enter a valid postal code">
                         </div>
                     </div>
 

@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $image_url = trim($_POST['image_url']);
 
-    $sql = "UPDATE books SET title = ?, author = ?, category = ?, isbn = ?, status = ?, image_url = ? WHERE book_id = ?";
+    $sql = "UPDATE books SET title = ?, author = ?, category = ?, isbn = ?, status = ?, image_url = ?, description = ? WHERE book_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssi", $title, $author, $category, $isbn, $status, $image_url, $book_id);
-
+    $stmt->bind_param("sssssssi", $title, $author, $category, $isbn, $status, $image_url, $description, $book_id);
+    $description = trim($_POST['description']);
     if ($stmt->execute()) {
         $success = "Book updated successfully!";
     } else {
@@ -70,42 +70,48 @@ $book = $result->fetch_assoc();
                     <?php endif; ?>
 
                     <form method="POST">
-                        <div class="mb-3">
-                            <label>Title</label>
-                            <input type="text" name="title" class="form-control" value="<?= $book['title'] ?>" required>
-                        </div>
+                    <div class="mb-3">
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control" value="<?= $book['title'] ?>" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Author</label>
-                            <input type="text" name="author" class="form-control" value="<?= $book['author'] ?>" required>
-                        </div>
+                    <div class="mb-3">
+                        <label>Author</label>
+                        <input type="text" name="author" class="form-control" value="<?= $book['author'] ?>" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Category</label>
-                            <input type="text" name="category" class="form-control" value="<?= $book['category'] ?>" required>
-                        </div>
+                    <div class="mb-3">
+                        <label>Category</label>
+                        <input type="text" name="category" class="form-control" value="<?= $book['category'] ?>" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label>ISBN</label>
-                            <input type="text" name="isbn" class="form-control" value="<?= $book['isbn'] ?>" required>
-                        </div>
+                    <div class="mb-3">
+                        <label>ISBN</label>
+                        <input type="text" name="isbn" class="form-control" value="<?= $book['isbn'] ?>" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Status</label>
-                            <select name="status" class="form-select" required>
-                                <option value="available" <?= $book['status'] === 'available' ? 'selected' : '' ?>>Available</option>
-                                <option value="borrowed" <?= $book['status'] === 'borrowed' ? 'selected' : '' ?>>Borrowed</option>
-                            </select>
-                        </div>
+                    <div class="mb-3">
+                        <label>Image URL (optional)</label>
+                        <input type="text" name="image_url" class="form-control" value="<?= $book['image_url'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Image URL (optional)</label>
-                            <input type="text" name="image_url" class="form-control" value="<?= $book['image_url'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows="4"><?= $book['description'] ?></textarea>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Update Book</button>
-                        <a href="admin_manage_books.php" class="btn btn-outline-secondary w-100 mt-3">← Back to Book List</a>
-                    </form>
+                    <div class="mb-3">
+                        <label>Status</label>
+                        <select name="status" class="form-select" required>
+                            <option value="available" <?= $book['status'] === 'available' ? 'selected' : '' ?>>Available</option>
+                            <option value="borrowed" <?= $book['status'] === 'borrowed' ? 'selected' : '' ?>>Borrowed</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Update Book</button>
+                    <a href="admin_manage_books.php" class="btn btn-outline-secondary w-100 mt-2">← Back</a>
+                </form>
+
 
                 </div>
             </div>
